@@ -22,7 +22,9 @@ property :package_name, String, default: 'whisper'
 property :version, String
 property :type, String, default: 'whisper'
 
+
 action :create do
+  python_virtualenv node['graphite']['base_dir']
   manage_python_pip(:install)
   manage_directory(:create)
 end
